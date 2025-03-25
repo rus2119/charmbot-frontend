@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CharmBot – AI Dating Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      padding-top: 60px;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      margin: auto;
+      background-color: #fff;
+      padding: 20px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 8px;
+    }
+    .close {
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CharmBot</h1>
+    <p class="tagline">Your AI-powered wingman for dating apps</p>
+
+    <div class="block">
+      <h2>1. Analyze Profile Screenshot</h2>
+      <input type="file" id="profileImage" />
+      <label class="style-toggle">
+        <input type="checkbox" id="myStyleImage" /> Generate response in my style
+      </label>
+      <button onclick="generateProfileReply()">Generate Response</button>
+      <div id="profileOutput"></div>
+    </div>
+
+    <div class="block">
+      <h2>2. Text Response</h2>
+      <select id="styleSelect">
+        <option value="Flirty">Flirty</option>
+        <option value="Witty">Witty</option>
+        <option value="Romantic">Romantic</option>
+        <option value="Confident">Confident</option>
+        <option value="Formal">Formal</option>
+        <option value="Informal">Informal</option>
+      </select>
+      <textarea id="textInput" placeholder="Paste a message..."></textarea>
+      <label class="style-toggle">
+        <input type="checkbox" id="myStyleText" /> Generate response in my style
+      </label>
+      <button onclick="generateTextReply()">Generate Response</button>
+      <div id="chatBox"></div>
+    </div>
+
+    <div id="styleModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3>Upload your chat style screenshots</h3>
+        <input type="file" id="styleImages" multiple />
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
